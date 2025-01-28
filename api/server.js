@@ -383,7 +383,7 @@ app.get('/api/manhwa-detail/:manhwaId', async (req, res) => {
     const $ = load(data);
 
     // Extract title, image, rating, and follow information
-    const title = $('.infox .entry-title').text().trim();
+    const title = $('.seriestuheader .entry-title').text().trim();
     const imageSrc = $('.thumb img').attr('src');
     const rating = $('.rating .num').text().trim();
     const followedBy = $('.bmc').text().trim();
@@ -398,23 +398,23 @@ app.get('/api/manhwa-detail/:manhwaId', async (req, res) => {
     const latestChapterTitle = $('.lastend .inepcx').last().find('.epcurlast').text().trim();
 
     // Extract details from the new layout (Status, Type, Released, etc.)
-    const status = $('.tsinfo .imptdt').eq(0).find('i').text().trim();
-    const type = $('.tsinfo .imptdt').eq(1).find('a').text().trim();
-    const released = $('.fmed').eq(0).find('span').text().trim();
-    const author = $('.fmed').eq(1).find('span').text().trim();
-    const artist = $('.fmed').eq(2).find('span').text().trim();
-    const updatedOn = $('.fmed').eq(3).find('time').text().trim();
+    const status = $('tr:contains("Status")').find('td').eq(1).text().trim();
+const type = $('tr:contains("Type")').find('td').eq(1).text().trim();
+const released = $('tr:contains("Released")').find('td').eq(1).text().trim();
+const author = $('tr:contains("Author")').find('td').eq(1).text().trim();
+const artist = $('tr:contains("Artist")').find('td').eq(1).text().trim();
+const updatedOn = $('tr:contains("Updated On")').find('time').text().trim();
 
     // Extract genres
     const genres = [];
-    $('.mgen a').each((index, element) => {
-      const genreName = $(element).text().trim();
-      const genreLink = $(element).attr('href');
-      genres.push({
-        genreName,
-        genreLink
-      });
-    });
+$('.seriestugenre a').each((index, element) => {
+  const genreName = $(element).text().trim();
+  const genreLink = $(element).attr('href');
+  genres.push({
+    genreName,
+    genreLink
+  });
+});
 
     // Extract list of chapters
     const chapters = [];
