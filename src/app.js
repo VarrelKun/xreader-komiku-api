@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 
 app.use(cors());
+app.set("json spaces",2);
 app.use(express.json());
 
 
