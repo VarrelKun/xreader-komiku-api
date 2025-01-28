@@ -3,7 +3,7 @@ import { fetchPage } from "../utils/fetchPage.js";
 
 export const getManhwaPopular = async (req, res) => {
   try {
-    const url = "https://komiku.one/manga/?type=manhwa&order=popular";
+    const url = "https://kiryuu.one/manga/?type=manhwa&order=popular";
 
     const html = await fetchPage(url);
 
@@ -37,8 +37,8 @@ export const getManhwaPopular = async (req, res) => {
 export const getManhwaRecommendation = async (req, res) => {
   try {
     const urls = [
-      "https://komiku.one/manga/?page=2&type=manhwa&order=popular",
-      "https://komiku.one/manga/?page=3&type=manhwa&order=popular",
+      "https://kiryuu.one/manga/?page=2&type=manhwa&order=popular",
+      "https://kiryuu.one/manga/?page=3&type=manhwa&order=popular",
     ];
 
     const allResults = [];
@@ -74,7 +74,7 @@ export const getManhwaRecommendation = async (req, res) => {
 
 export const getManhwaNew = async (req, res) => {
   try {
-    const url = "https://komiku.one/";
+    const url = "https://kiryuu.one/";
     const html = await fetchPage(url);
     const $ = load(html);
 
@@ -123,7 +123,7 @@ export const getManhwaNew = async (req, res) => {
 };
 
 export const getManhwaTop = async (req, res) => {
-  const url = "https://komiku.one/";
+  const url = "https://kiryuu.one/";
 
   try {
     const html = await fetchPage(url);
@@ -157,7 +157,7 @@ export const getManhwaTop = async (req, res) => {
 
 export const getGenres = async (req, res) => {
   try {
-    const url = "https://komiku.one/manga/list-mode/";
+    const url = "https://kiryuu.one/manga/list-mode/";
     const html = await fetchPage(url);
     const $ = load(html);
 
@@ -181,7 +181,7 @@ export const getGenres = async (req, res) => {
 
 export const getGenreId = async (req, res) => {
   const { genreId } = req.params;
-  const url = `https://komiku.one/genres/${genreId}`;
+  const url = `https://kiryuu.one/genres/${genreId}`;
 
   try {
     const html = await fetchPage(url);
@@ -219,7 +219,7 @@ export const getGenreId = async (req, res) => {
 
 export const getGenreIdPage = async (req, res) => {
   const { genreId, pageNumber } = req.params;
-  const url = `https://komiku.one/genres/${genreId}/page/${pageNumber}`;
+  const url = `https://kiryuu.one/genres/${genreId}/page/${pageNumber}`;
 
   try {
     const html = await fetchPage(url);
@@ -259,7 +259,7 @@ export const getGenreIdPage = async (req, res) => {
 
 export const getSearch = async (req, res) => {
   const { searchId } = req.params;
-  const url = `https://komiku.one/?s=${searchId}`;
+  const url = `https://kiryuu.one/?s=${searchId}`;
 
   try {
     const html = await fetchPage(url);
@@ -297,7 +297,7 @@ export const getSearch = async (req, res) => {
 
 export const getSearchPage = async (req, res) => {
   const { searchId, pageNumber } = req.params;
-  const url = `https://komiku.one/page/${pageNumber}/?s=${searchId}`;
+  const url = `https://kiryuu.one/page/${pageNumber}/?s=${searchId}`;
 
   try {
     const html = await fetchPage(url);
@@ -337,7 +337,7 @@ export const getSearchPage = async (req, res) => {
 
 export const getManhwaDetail = async (req, res) => {
   const manhwaId = req.params.manhwaId;
-  const url = `https://komiku.one/manga/${manhwaId}`;
+  const url = `https://kiryuu.one/manga/${manhwaId}`;
 
   try {
     const html = await fetchPage(url);
@@ -433,7 +433,7 @@ export const getManhwaDetail = async (req, res) => {
 };
 
 export const getManhwaOnGoing = async (req, res) => {
-    const url = "https://komiku.one/manga/?status=ongoing&type=manhwa&order=";
+    const url = "https://kiryuu.one/manga/?status=ongoing&type=manhwa&order=";
   try {
     const html = await fetchPage(url);
     const $ = load(html);
@@ -467,7 +467,7 @@ export const getManhwaOnGoing = async (req, res) => {
 
 export const getChapter = async (req, res) => {
   const { chapterId } = req.params;
-  const url = `https://komiku.one/${chapterId}`; 
+  const url = `https://kiryuu.one/${chapterId}`; 
 
   try {
     const html = await fetchPage(url);
