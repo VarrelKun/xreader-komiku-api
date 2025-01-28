@@ -10,7 +10,7 @@ app.use(cors());
 app.get('/api/manhwa-popular', async (req, res) => {
   try {
     // URL yang akan di-scrape
-    const url = 'https://komiku.one/manga/?type=manhwa&order=popular';
+    const url = 'https://kiryuu.one/manga/?type=manhwa&order=popular';
 
     // Ambil HTML dari URL menggunakan axios
     const { data } = await axios.get(url);
@@ -54,8 +54,8 @@ app.get('/api/manhwa-recommendation', async (req, res) => {
   try {
     // URLs that will be scraped
     const urls = [
-      'https://komiku.one/manga/?page=2&type=manhwa&order=popular',
-      'https://komiku.one/manga/?page=3&type=manhwa&order=popular'
+      'https://kiryuu.one/manga/?page=2&type=manhwa&order=popular',
+      'https://kiryuu.one/manga/?page=3&type=manhwa&order=popular'
     ];
 
     // Array to hold all scraped results
@@ -102,7 +102,7 @@ app.get('/api/manhwa-recommendation', async (req, res) => {
 // NEW MANHWA
 app.get('/api/manhwa-new', async (req, res) => {
     try {
-      const url = 'https://komiku.one/';
+      const url = 'https://kiryuu.one/';
       const { data } = await axios.get(url);
       const $ = load(data);
   
@@ -150,7 +150,7 @@ app.get('/api/manhwa-new', async (req, res) => {
 
 // MANHWA RECOMMEND
 app.get('/api/manhwa-recommend', async (req, res) => {
-  const url = 'https://komiku.one/';
+  const url = 'https://kiryuu.one/';
 
   try {
       const { data } = await axios.get(url);
@@ -182,7 +182,7 @@ app.get('/api/manhwa-recommend', async (req, res) => {
 // DATA GENRE
   app.get('/api/genres', async (req, res) => {
     try {
-        const url = 'https://komiku.one/manga/list-mode/'; // Replace with the actual URL
+        const url = 'https://kiryuu.one/manga/list-mode/'; // Replace with the actual URL
         const { data } = await axios.get(url);
         const $ = load(data);
 
@@ -209,7 +209,7 @@ app.get('/api/manhwa-recommend', async (req, res) => {
 // GENRE RESULT
 app.get('/api/genre/:genreId', async (req, res) => {
   const { genreId } = req.params;
-  const url = `https://komiku.one/genres/${genreId}`;
+  const url = `https://kiryuu.one/genres/${genreId}`;
 
   try {
     const { data } = await axios.get(url);
@@ -247,7 +247,7 @@ app.get('/api/genre/:genreId', async (req, res) => {
 });
 app.get('/api/genre/:genreId/page/:pageNumber', async (req, res) => {
   const { genreId, pageNumber } = req.params;
-  const url = `https://komiku.one/genres/${genreId}/page/${pageNumber}`;
+  const url = `https://kiryuu.one/genres/${genreId}/page/${pageNumber}`;
 
   try {
     const { data } = await axios.get(url);
@@ -294,7 +294,7 @@ app.get('/api/genre/:genreId/page/:pageNumber', async (req, res) => {
 // SEARCH RESULT
 app.get('/api/search/:searchId', async (req, res) => {
   const { searchId } = req.params;
-  const url = `https://komiku.one/?s=${searchId}`;
+  const url = `https://kiryuu.one/?s=${searchId}`;
 
   try {
     const { data } = await axios.get(url);
@@ -332,7 +332,7 @@ app.get('/api/search/:searchId', async (req, res) => {
 });
 app.get('/api/page/:pageNumber/search/:searchId', async (req, res) => {
   const { searchId, pageNumber } = req.params;
-  const url = `https://komiku.one/page/${pageNumber}/?s=${searchId}`;
+  const url = `https://kiryuu.one/page/${pageNumber}/?s=${searchId}`;
 
   try {
     const { data } = await axios.get(url);
@@ -376,7 +376,7 @@ app.get('/api/page/:pageNumber/search/:searchId', async (req, res) => {
 // MANHWA DETAL
 app.get('/api/manhwa-detail/:manhwaId', async (req, res) => {
   const manhwaId = req.params.manhwaId;
-  const url = `https://komiku.one/manga/${manhwaId}`;
+  const url = `https://kiryuu.one/manga/${manhwaId}`;
 
   try {
     const { data } = await axios.get(url);
@@ -471,7 +471,7 @@ app.get('/api/manhwa-detail/:manhwaId', async (req, res) => {
 // MANHWA-ONGOING
 app.get('/api/manhwa-ongoing', async (req, res) => {
   try {
-      const url = 'https://komiku.one/manga/?status=ongoing&type=manhwa&order=';
+      const url = 'https://kiryuu.one/manga/?status=ongoing&type=manhwa&order=';
       const response = await axios.get(url);
       const html = response.data;
       const $ = load(html);
@@ -510,7 +510,7 @@ app.get('/api/manhwa-ongoing', async (req, res) => {
 // READ CHAPTER
 app.get('/api/chapter/:chapterId', async (req, res) => {
   const { chapterId } = req.params;
-  const url = `https://komiku.one/${chapterId}`; // Adjust the URL if necessary
+  const url = `https://kiryuu.one/${chapterId}`; // Adjust the URL if necessary
 
   try {
     const response = await axios.get(url);
